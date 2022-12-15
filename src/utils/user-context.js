@@ -10,11 +10,7 @@ export const UserContextProvider = ({ children, setIsLoggedIn }) => {
       value={{
         currentUser,
         setCurrentUser,
-<<<<<<< HEAD
         setIsLoggedIn,
-=======
-        setIsLoggedIn
->>>>>>> 21d533290b25da176c800763a960c2b05a1daecc
       }}
     >
       {children}
