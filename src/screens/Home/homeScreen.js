@@ -123,14 +123,23 @@ export default function HomeScreen() {
       />
 
       <TouchableOpacity
-        style={{ marginTop: 30 }}
+        style={{ marginTop: 30, borderRadius: 5, backgroundColor: "#FF0078" }}
         onPress={() => {
           webViewRef.current.injectJavaScript(
             'document.getElementById("audio").play();true;'
           );
         }}
       >
-        <Text style={{ color: "white" }}>Play</Text>
+        <Text
+          style={{
+            color: "white",
+            fontSize: 16,
+            fontWeight: "bold",
+            padding: 5,
+          }}
+        >
+          Play
+        </Text>
       </TouchableOpacity>
     </View>
   );
