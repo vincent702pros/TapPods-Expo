@@ -1,32 +1,34 @@
 import { StatusBar } from "expo-status-bar";
+import React, { useEffect, useRef, useState } from "react";
 import {
+  Button,
+  FlatList,
+  PermissionsAndroid,
+  ScrollView,
   StyleSheet,
   Text,
-  View,
-  Button,
   TouchableOpacity,
-  PermissionsAndroid,
-  FlatList,
-  ScrollView,
+  View,
 } from "react-native";
-import React, { useState, useEffect, useRef } from "react";
+import { ActivityIndicator } from "react-native-paper";
 
 import { WebView } from "react-native-webview";
 
 import Pod from "../../components/Pod";
 
 export default function HomeScreen() {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [currentPod, setCurrentPod] = useState({});
   const [data, setData] = useState([]);
   const webViewRef = useRef({});
 
   useEffect(() => {
+    setIsLoading(true);
     fetch("https://www.tappods.com/wp-json/wp/v2/posts/")
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))
-      .finally(() => setLoading(false));
+      .finally(() => setIsLoading(false));
   }, []);
 
   useEffect(() => {
@@ -57,6 +59,17 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
+      {isLoading && (
+        <View style={styles.loadingContainer}>
+          <ActivityIndicator
+            size={100}
+            animating={true}
+            color={"#FF0078"}
+            style={{ marginLeft: -25 }}
+          />
+        </View>
+      )}
+
       <ScrollView>
         <View style={styles.titleWrapper}>
           <Text style={styles.mainTitle}>Explore</Text>
@@ -119,8 +132,6 @@ export default function HomeScreen() {
       >
         <Text style={{ color: "white" }}>Play</Text>
       </TouchableOpacity>
-
-      <StatusBar style="light" />
     </View>
   );
 }
@@ -133,6 +144,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     padding: 10,
     paddingTop: 50,
+  },
+  loadingContainer: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
   },
   titleWrapper: {
     display: "flex",

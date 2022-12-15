@@ -6,7 +6,7 @@ import { StartStack, TabBar } from "./src/navigation/navigationScreen";
 import { UserContextProvider } from "./src/utils/user-context";
 
 export default function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   return (
     <UserContextProvider setIsLoggedIn={setIsLoggedIn}>
