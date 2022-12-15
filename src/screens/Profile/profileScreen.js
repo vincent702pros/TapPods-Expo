@@ -1,13 +1,17 @@
-import { Text, View, StyleSheet, TouchableOpacity } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { useContext } from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { UserContext } from "../../utils/user-context";
 
 export default function ProfileScreen() {
+  const { currentUser } = useContext(UserContext);
+
   return (
     <View style={styles.container}>
       <TouchableOpacity>
         <Ionicons name="person-circle-outline" size={175} color="white" />
       </TouchableOpacity>
-      <Text style={styles.name}>Johann Olivares</Text>
+      <Text style={styles.name}>{currentUser.fullname}</Text>
       <TouchableOpacity style={styles.editButton}>
         <Text style={styles.editText}>Edit Profile</Text>
       </TouchableOpacity>
