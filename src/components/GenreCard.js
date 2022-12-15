@@ -3,6 +3,8 @@ import React, { useContext, useEffect, useState } from "react";
 import { StyleSheet, Text, TouchableWithoutFeedback, View } from "react-native";
 import { GenreListContext } from "../GenreListContext";
 
+const randomColor = "#" + (((1 << 24) * Math.random()) | 0).toString(16);
+
 export function GenreCard({ title }) {
   return (
     <View style={styles.container}>
@@ -98,7 +100,7 @@ const styles = StyleSheet.create({
   container: {
     height: 125,
     width: "100%",
-    backgroundColor: "#a733ba",
+    backgroundColor: randomColor,
     borderRadius: 10,
     padding: 10,
     flex: 1,

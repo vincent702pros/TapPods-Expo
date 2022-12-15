@@ -1,8 +1,8 @@
 import Ionicons from "@expo/vector-icons/Ionicons";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 import { LoginScreen } from "../screens/Login/login_screen.js";
 import { StartScreen } from "../screens/Login/start_screen.js";
@@ -14,10 +14,10 @@ import { SignUpName } from "../screens/Sign Up/name.js";
 import { SignUpPswd } from "../screens/Sign Up/password.js";
 
 import HomeScreen from "../screens/Home/homeScreen";
-import SearchScreen from "../screens/Search/searchScreen";
 import LibraryScreen from "../screens/Library/libraryScreen";
 import PremiumScreen from "../screens/Premium/premiumScreen";
 import ProfileScreen from "../screens/Profile/profileScreen.js";
+import SearchScreen from "../screens/Search/searchScreen";
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -80,9 +80,9 @@ const HomeStack = () => {
               </View>
               <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
                 <Ionicons
-                  style={{ marginLeft: 10 }}
-                  name="settings"
-                  size={24}
+                  style={{ marginLeft: 10, marginTop: -2 }}
+                  name="person-circle-outline"
+                  size={26}
                   color="white"
                 />
               </TouchableOpacity>
