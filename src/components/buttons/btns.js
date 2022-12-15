@@ -1,4 +1,4 @@
-import {Text, TouchableOpacity, TouchableWithoutFeedback, View, StyleSheet} from 'react-native';
+import {Text, TouchableOpacity, StyleSheet} from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 

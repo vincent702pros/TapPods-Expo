@@ -35,8 +35,6 @@ export const ChoosePods = ( {navigation} ) => {
 
             console.log("Genres List Saved");
             setIsLoggedIn(true);
-            //Navigate to Home Screen
-            // navigation.push('Home');
         })
         .catch(error => console.log('error'))
       

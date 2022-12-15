@@ -1,14 +1,6 @@
 import { StatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  Image,
-  TextInput,
-  TouchableWithoutFeedback,
-} from "react-native";
-import { MainBtn, NextValBtn } from "../../components/buttons/btns";
+import { StyleSheet, Text, View, SafeAreaView, Image, TextInput, TouchableWithoutFeedback} from "react-native";
+import { NextValBtn } from "../../components/buttons/btns";
 import { useState, useContext } from "react";
 import { UserContext } from "../../utils/user-context";
 
@@ -59,8 +51,6 @@ export const LoginScreen = ({ navigation }) => {
 
         setIsLoggedIn(true);
 
-        //Navigate to Home
-        // navigation.push("Home");
       })
       .catch((error) => console.log("Error"));
   };

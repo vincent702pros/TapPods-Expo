@@ -1,4 +1,4 @@
-import {Text, TouchableOpacity, View, StyleSheet} from 'react-native';
+import {Text, StyleSheet} from 'react-native';
 
 export { MainHeader, SubHeader, SubTxt };
 
@@ -22,7 +22,7 @@ const SubTxt = (props) => {
 
 const headStyles = StyleSheet.create({
     heading: {
-        fontFamily: 'Cantata One',
+        fontFamily: 'Poppins',
         fontSize: 30,
         fontWeight: 'bold',
         color: '#fff',
@@ -30,7 +30,7 @@ const headStyles = StyleSheet.create({
         textAlign: 'left',
     },
     subHeading: {
-        fontFamily: 'Cantata One',
+        fontFamily: 'Poppins',
         fontSize: 16,
         fontWeight: 'bold',
         color: '#fff',
@@ -39,9 +39,8 @@ const headStyles = StyleSheet.create({
     },
     subTxt: {
         color: '#AAA9A9',
-        fontFamily: 'Cantata One',
+        fontFamily: 'Poppins',
         fontSize: 14,
         marginBottom: 25
     },
-  
   })
