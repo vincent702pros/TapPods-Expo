@@ -59,7 +59,7 @@ export default function HomeScreen() {
 
   return (
     <View style={styles.container}>
-      {isLoading && (
+      {/* {isLoading && (
         <View style={styles.loadingContainer}>
           <ActivityIndicator
             size={100}
@@ -68,7 +68,7 @@ export default function HomeScreen() {
             style={{ marginLeft: -25 }}
           />
         </View>
-      )}
+      )} */}
 
       <ScrollView>
         <View style={styles.titleWrapper}>
@@ -173,7 +173,7 @@ const styles = StyleSheet.create({
   },
   mainTitle: {
     color: "#fff",
-    alignSelf: "start",
+    alignSelf: "flex-start",
     fontSize: 20,
     fontWeight: "bold",
     marginBottom: 10,
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
   },
   subTitle: {
     color: "#FF0078",
-    alignSelf: "start",
+    alignSelf: "flex-start",
     fontSize: 16,
     fontWeight: "semibold",
     marginBottom: 10,
