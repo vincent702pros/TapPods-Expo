@@ -24,7 +24,7 @@ export default function HomeScreen() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("https://www.tappods.com/wp-json/wp/v2/posts/")
+    fetch("https://www.tappods.com/wp-json/tpapi/v1/getpods/")
       .then((response) => response.json())
       .then((json) => setData(json))
       .catch((error) => console.error(error))
@@ -32,7 +32,7 @@ export default function HomeScreen() {
   }, []);
 
   useEffect(() => {
-    setCurrentPod(data[0]?.acf.audio_file);
+    setCurrentPod(data[0]?.audio_file);
   }, [data]);
 
   const handleCurrentPod = (pod) => {
@@ -73,18 +73,16 @@ export default function HomeScreen() {
       <ScrollView>
         <View style={styles.titleWrapper}>
           <Text style={styles.mainTitle}>Explore</Text>
-          <Text style={styles.subTitle}>See all</Text>
+          {/* <Text style={styles.subTitle}>See all</Text> */}
         </View>
 
         <FlatList
-          horizontal
           style={styles.flatList}
           data={data}
+          numColumns={1}
           keyExtractor={(item) => item}
           renderItem={({ item }) => (
-            <TouchableOpacity
-              onPress={() => handleCurrentPod(item.acf.audio_file)}
-            >
+            <TouchableOpacity onPress={() => handleCurrentPod(item.audio_file)}>
               <Pod item={item} />
             </TouchableOpacity>
           )}
@@ -103,9 +101,7 @@ export default function HomeScreen() {
           data={data}
           keyExtractor={(item) => item}
           renderItem={({ item }) => (
-            <TouchableOpacity
-              onPress={() => handleCurrentPod(item.acf.audio_file)}
-            >
+            <TouchableOpacity onPress={() => handleCurrentPod(item.audio_file)}>
               <Pod key={item.id} item={item} />
             </TouchableOpacity>
           )}

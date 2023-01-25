@@ -6,25 +6,37 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Dimensions,
 } from "react-native";
 
 export default function Pod({ item }) {
+  const windowWidth = Dimensions.get("window").width;
+
   return (
     <View style={styles.wrapper}>
       <View style={styles.container}>
-        <View>
+        <View style={styles.profileImageContainer}>
           <Image
-            style={styles.image}
+            style={styles.profileImage}
             source={{
-              uri: "https://www.tappods.com/wp-content/uploads/2022/11/npr-news-now_tile_npr-network-01_sq-d270e3f80c6b5c951c8dc7be402e4438ce8130d0-300x300.jpg",
+              uri: item.img_url,
             }}
           />
-          <TouchableOpacity style={styles.plusContainer}>
-            <Ionicons name="ios-add-sharp" size={30} color="#000" />
-          </TouchableOpacity>
+
+          <View>
+            <Text style={styles.heading}>{item.pod_title}</Text>
+            <Text style={styles.date}>{item.post_date}</Text>
+            <Image
+              style={styles.image}
+              source={{
+                uri: item.img_url,
+              }}
+            />
+            <TouchableOpacity style={styles.plusContainer}>
+              <Ionicons name="ios-add-sharp" size={30} color="#000" />
+            </TouchableOpacity>
+          </View>
         </View>
-        <Text style={styles.heading}>{item.title.rendered}</Text>
-        <Text style={styles.date}>{item.date}</Text>
       </View>
     </View>
   );
@@ -37,13 +49,14 @@ const styles = StyleSheet.create({
   container: {
     padding: 15,
     borderRadius: 10,
-    backgroundColor: "#232323",
-    width: 175,
-    height: 250,
+    backgroundColor: "transparent",
+    width: "100%",
+    height: "auto",
     overflow: "hidden",
     display: "flex",
     justifyContent: "flex-start",
     alignItems: "center",
+    marginBottom: 20,
   },
   plusContainer: {
     position: "absolute",
@@ -55,8 +68,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   image: {
-    width: 150,
-    height: 150,
+    width: 275,
+    height: 275,
     borderRadius: 10,
     objectFit: "cover",
     marginBottom: 5,
@@ -65,12 +78,25 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: "#FFF",
     fontWeight: "semibold",
+    marginBottom: 10,
   },
   date: {
     fontSize: 14,
     color: "#FFF",
+    marginBottom: 10,
   },
   desc: {
     color: "gray",
+  },
+  profileImage: {
+    width: 50,
+    height: 50,
+    borderRadius: 500,
+  },
+  profileImageContainer: {
+    display: "flex",
+    flexDirection: "row",
+    width: "100%",
+    justifyContent: "space-between",
   },
 });
